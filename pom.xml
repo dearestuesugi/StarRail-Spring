@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>StarRail-Spring</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>18</maven.compiler.source>
+        <maven.compiler.target>18</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!--    版本管理    -->
+        <!--    Spring Boot    -->
+        <Spring-Boot.version>3.1.5</Spring-Boot.version>
+        <!--    SnakeYAML    -->
+        <SnakeYAML.version>2.2</SnakeYAML.version>
+        <!--    AspectJ weaver    -->
+        <AspectJ-weaver.version>1.9.20.1</AspectJ-weaver.version>
+        <!--    OpenCv    -->
+        <OpenCV.version>4.7.0-0</OpenCV.version>
+        <!--    Tess4J    -->
+        <Tess4J.version>5.8.0</Tess4J.version>
+        <!--    JNativeHook    -->
+        <JNativeHook.version>2.2.2</JNativeHook.version>
+        <!--    Lombok    -->
+        <Lombok.version>1.18.30</Lombok.version>
+    </properties>
+
+    <dependencies>
+        <!--    Spring Boot 核心启动器，包括自动配置支持、日志记录和 YAML   -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <version>${Spring-Boot.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!--    Spring Boot 测试启动器(包含JUnit 5等测试框架)    -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>${Spring-Boot.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!--    Spring Boot 配置注释处理器(编译时生成Spring Boot配置元数据文件)    -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-configuration-processor -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <version>${Spring-Boot.version}</version>
+        </dependency>
+
+        <!--    SnakeYAML 用于替换Spring Boot Starter中的低版本SnakeYAML    -->
+        <!-- https://mvnrepository.com/artifact/org.yaml/snakeyaml -->
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>${SnakeYAML.version}</version>
+        </dependency>
+
+        <!--    使用 Log4j2 进行日志记录,spring-boot-starter-logging 的替代    -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-log4j2 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
+            <version>${Spring-Boot.version}</version>
+        </dependency>
+
+        <!--    AspectJ weaver 将 aspects 应用于 Java 类。它可以用作 Java 代理以应用加载时间 类加载期间的编织 （LTW），并且还包含 AspectJ 运行时类    -->
+        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${AspectJ-weaver.version}</version>
+            <!--            <scope>runtime</scope>-->
+        </dependency>
+
+        <!--    OpenCv依赖,提供图像处理功能    -->
+        <!-- https://mvnrepository.com/artifact/org.openpnp/opencv -->
+        <dependency>
+            <groupId>org.openpnp</groupId>
+            <artifactId>opencv</artifactId>
+            <version>${OpenCV.version}</version>
+        </dependency>
+
+        <!--    tess4j是针对java对Tesseract OCR封装调用的api依赖,提供光学字符识别(OCR)功能    -->
+        <!--    用于 Tesseract OCR API 的 Java JNA 包装器。 Tess4J为以下各项提供光学字符识别 （OCR） 支持： TIFF、JPEG、GIF、PNG 和 BMP 图像格式 多页 TIFF 图像 PDF 文档格式    -->
+        <!-- https://mvnrepository.com/artifact/net.sourceforge.tess4j/tess4j -->
+        <dependency>
+            <groupId>net.sourceforge.tess4j</groupId>
+            <artifactId>tess4j</artifactId>
+            <version>${Tess4J.version}</version>
+        </dependency>
+
+        <!--    Java 的全局键盘和鼠标侦听器    -->
+        <!-- https://mvnrepository.com/artifact/com.github.kwhat/jnativehook -->
+        <dependency>
+            <groupId>com.github.kwhat</groupId>
+            <artifactId>jnativehook</artifactId>
+            <version>${JNativeHook.version}</version>
+        </dependency>
+
+        <!--    Lombok(自动资源管理、自动生成 getter、setter、equals、hashCode 和 toString 等)    -->
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${Lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+</project>
